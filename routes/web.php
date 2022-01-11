@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,21 +31,5 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/blog', function () {
-    $blog_posts = [
-        [
-            "title" => "Post 1",
-            "author" => "Ridho",
-            "body" => "Hello World"
-        ],
-        [
-            "title" => "Post 2",
-            "author" => "Ridho",
-            "body" => "Hello World"
-        ],
-    ];
-    return view('posts', [
-        "title" => "Blog",
-        "posts" => $blog_posts
-    ]);
-});
+Route::get('/blog', [PostController::class, 'index']);
+Route::get('posts/{slug}', [PostController::class, 'show']);
