@@ -13,6 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home', [
+        "title" => "Home"
+    ]);
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        "title" => "About"
+    ]);
+});
+
+Route::get('/blog', function () {
+    $blog_posts = [
+        [
+            "title" => "Post 1",
+            "author" => "Ridho",
+            "body" => "Hello World"
+        ],
+        [
+            "title" => "Post 2",
+            "author" => "Ridho",
+            "body" => "Hello World"
+        ],
+    ];
+    return view('posts', [
+        "title" => "Blog",
+        "posts" => $blog_posts
+    ]);
 });
