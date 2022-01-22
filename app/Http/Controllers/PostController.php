@@ -36,4 +36,12 @@ class PostController extends Controller
             "post" => $post
         ]);
     }
+    public function home(Post $post)
+    {
+        return view('home', [
+            "title" => "Home",
+            "active" => "home",
+            "post" => $post
+        ]);
+    }
 }

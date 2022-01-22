@@ -24,12 +24,7 @@ use App\Http\Controllers\DashboardPostController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home",
-        "active" => "home",
-    ]);
-});
+Route::get('/', [PostController::class, 'index']);
 
 Route::get('/about', function () {
     return view('about', [
